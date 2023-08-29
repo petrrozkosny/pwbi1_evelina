@@ -87,3 +87,21 @@ COUNTX(
     data[maximalni_teplota] > 30
     && data[lokalita] = "RUZYNE"),
 data[datum])
+
+_____________________________________-
+
+11 kontrola teploty graz = 
+
+--byla lokalita graz v danem roce lokalitou s nejvyssi max_teplota?
+-- ANO/NE
+
+IF(
+    -- maximalni maximalni_teplota v graz v danem roce
+MAXX(
+    FILTER(data,
+    data[lokalita] = "GRAZ"),
+data[maximalni_teplota])
+=
+-- maximalni teplota v danem roce, ve vsech lokalitach
+
+MAX(data[maximalni_teplota]),"ano","ne")
