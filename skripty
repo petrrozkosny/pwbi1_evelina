@@ -61,3 +61,18 @@ _______________________________
 SUMX(
     FILTER(data,data[mesic] = 12)
 ,data[srazky])
+
+_________________________________________
+
+08 suma srazek mezirocne = 
+
+-- suma srazek v danem roce
+SUM(data[srazky])
+-- mínus
+-
+-- suma srážek v předchozím roce
+sumx(
+FILTER(
+    ALL(data),
+data[rok] = MAX(data[rok]) - 1),
+[srazky za 12])
