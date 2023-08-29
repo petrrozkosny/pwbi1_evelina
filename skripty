@@ -118,3 +118,19 @@ COUNTX(
     && data[srazky] > 0
     && (data[mesic] >= 11 || data[mesic] <=2)),
 data[datum])
+__________________________________________________
+
+17 kde bylo tepleji = 
+-- bylo v danem roce tepleji, tj. maximalni_teplota byla vyssi, v ruzyne nebo turany
+IF(
+-- maximalni teplota v danem roce v lokalite ruzyne
+MAXX(
+    FILTER(data,
+    data[lokalita] = "RUZYNE"),
+data[maximalni_teplota])
+>=
+-- maximalni teplota v danem roce v lokalite turany
+MAXX(
+    FILTER(data,
+    data[lokalita] = "TURANY"),
+data[maximalni_teplota]),"RUZYNE","TURANY")
