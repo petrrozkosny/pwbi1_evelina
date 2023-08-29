@@ -105,3 +105,16 @@ data[maximalni_teplota])
 -- maximalni teplota v danem roce, ve vsech lokalitach
 
 MAX(data[maximalni_teplota]),"ano","ne")
+
+___________________________________________________
+
+16 pocet destivych zimnich dnu ruzyne = 
+
+-- kolikrát (pocet datumu) v ruzyni v zime prselo v danem roce,
+-- zima = listopad az unor
+COUNTX(
+    FILTER(data,
+    data[lokalita] = "RUZYNE"
+    && data[srazky] > 0
+    && (data[mesic] >= 11 || data[mesic] <=2)),
+data[datum])
