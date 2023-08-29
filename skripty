@@ -55,3 +55,9 @@ SUMX(
 data[srazky])
 
 _______________________________
+
+05 suma srazek 12 mesic = 
+-- suma srazek v danem roce, v mesici 12
+SUMX(
+    FILTER(data,data[mesic] = 12)
+,data[srazky])
